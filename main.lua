@@ -9,6 +9,34 @@ function love.load()
 
 	GridXCount = 20 -- cells
 	GridYCount = 15 -- cells
+
+	FoodPosition = {
+		x = love.math.random(1, GridXCount),
+		y = love.math.random(1, GridYCount),
+	}
+
+	function MoveFood()
+		local possibleFoodPosition = {}
+
+		for foodX = 1, GridXCount do
+			for foodY = 1, GridXCount do
+				local possible = true
+				for _, segment in ipairs(SnakeSegments) do
+					if foodX == segment.x and foodY == segment.y then
+						possible = false
+					end
+				end
+
+				if possible then
+					table.insert(possibleFoodPosition, { x = foodX, y = foodY })
+				end
+			end
+		end
+
+		FoodPosition = possibleFoodPosition[love.math.random(#possibleFoodPosition)]
+	end
+
+	MoveFood()
 end
 
 function love.update(dt)
@@ -49,7 +77,12 @@ function love.update(dt)
 			x = nextXPosition,
 			y = nextYPosition,
 		})
-		table.remove(SnakeSegments)
+
+		if SnakeSegments[1].x == FoodPosition.x and SnakeSegments[1].y == FoodPosition.y then
+			MoveFood()
+		else
+			table.remove(SnakeSegments)
+		end
 	end
 end
 
@@ -72,22 +105,23 @@ end
 function love.draw()
 	local cellSize = 15 -- pixels
 
+	local function drawCell(x, y)
+		love.graphics.rectangle("fill", (x - 1) * cellSize, (y - 1) * cellSize, cellSize - 1, cellSize - 1)
+	end
+
 	love.graphics.setColor(0.28, 0.28, 0.28)
 	love.graphics.rectangle("fill", 0, 0, GridXCount * cellSize, GridYCount * cellSize)
 
 	for _, segment in ipairs(SnakeSegments) do
 		love.graphics.setColor(0.6, 1, 0.32)
-		love.graphics.rectangle(
-			"fill",
-			(segment.x - 1) * cellSize,
-			(segment.y - 1) * cellSize,
-			cellSize - 1,
-			cellSize - 1
-		)
+		drawCell(segment.x, segment.y)
 	end
 
 	for directionIndex, direction in ipairs(DirectionQueue) do
 		love.graphics.setColor(1, 1, 1)
 		love.graphics.print("DirectionQueue[" .. directionIndex .. "]: " .. direction, 15 * 15 * directionIndex)
 	end
+
+	love.graphics.setColor(1, 0.3, 0.3)
+	drawCell(FoodPosition.x, FoodPosition.y)
 end
