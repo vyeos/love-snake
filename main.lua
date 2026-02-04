@@ -105,17 +105,13 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-	if key == "right" and DirectionQueue[#DirectionQueue] ~= "right" and DirectionQueue[#DirectionQueue] ~= "left" then
+	if key == "l" and DirectionQueue[#DirectionQueue] ~= "right" and DirectionQueue[#DirectionQueue] ~= "left" then
 		table.insert(DirectionQueue, "right")
-	elseif
-		key == "left"
-		and DirectionQueue[#DirectionQueue] ~= "left"
-		and DirectionQueue[#DirectionQueue] ~= "right"
-	then
+	elseif key == "h" and DirectionQueue[#DirectionQueue] ~= "left" and DirectionQueue[#DirectionQueue] ~= "right" then
 		table.insert(DirectionQueue, "left")
-	elseif key == "up" and DirectionQueue[#DirectionQueue] ~= "up" and DirectionQueue[#DirectionQueue] ~= "down" then
+	elseif key == "k" and DirectionQueue[#DirectionQueue] ~= "up" and DirectionQueue[#DirectionQueue] ~= "down" then
 		table.insert(DirectionQueue, "up")
-	elseif key == "down" and DirectionQueue[#DirectionQueue] ~= "down" and DirectionQueue[#DirectionQueue] ~= "up" then
+	elseif key == "j" and DirectionQueue[#DirectionQueue] ~= "down" and DirectionQueue[#DirectionQueue] ~= "up" then
 		table.insert(DirectionQueue, "down")
 	end
 end
