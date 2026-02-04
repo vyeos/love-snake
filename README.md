@@ -7,4 +7,11 @@
 ## Controls
 Arrow Keys
 
+## TODO
+[ ] start screen
+[ ] track highscore
 
+[ ] theme control
+[ ] toggle for wraping
+[ ] square/circle for snake and food
+[ ] control game tick
