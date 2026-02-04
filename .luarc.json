@@ -1,0 +1,8 @@
+{
+  "diagnostics": {
+    "globals": ["love"]
+  },
+  "workspace": {
+    "library": ["/Applications/love.app/Contents/Resources/love"]
+  }
+}
