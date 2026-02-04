@@ -5,7 +5,10 @@
 - Game over when snake hits itself.
 
 ## Controls
-Arrow Keys
+h - left
+j - down
+k - up
+l - right
 
 ## TODO
 [ ] start screen
