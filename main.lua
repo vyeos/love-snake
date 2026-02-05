@@ -1,5 +1,8 @@
 function love.load()
 	function Reset()
+		-- love.window.setMode(320, 180) Pixel Art
+		-- love.window.setMode(480, 270) Retro 2D
+		love.window.setMode(300, 225)
 		SnakeSegments = {
 			{ x = 3, y = 1 },
 			{ x = 2, y = 1 },

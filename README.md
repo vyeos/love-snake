@@ -11,10 +11,10 @@ k - up
 l - right
 
 ## TODO
-[ ] start screen
-[ ] track highscore
+- [ ] start screen
+- [ ] track highscore
 
-[ ] theme control
-[ ] toggle for wraping
-[ ] square/circle for snake and food
-[ ] control game tick
+- [ ] theme control
+- [ ] toggle for wraping
+- [ ] square/circle for snake and food
+- [ ] control game tick
