@@ -242,30 +242,27 @@ function love.keypressed(key)
 		return
 	end
 
-	if
-		key == "right"
-		or key == "l"
-		or key == "d" and DirectionQueue[#DirectionQueue] ~= "right" and DirectionQueue[#DirectionQueue] ~= "left"
-	then
-		table.insert(DirectionQueue, "right")
-	elseif
-		key == "left"
-		or key == "h"
-		or key == "a" and DirectionQueue[#DirectionQueue] ~= "left" and DirectionQueue[#DirectionQueue] ~= "right"
-	then
-		table.insert(DirectionQueue, "left")
-	elseif
-		key == "up"
-		or key == "k"
-		or key == "w" and DirectionQueue[#DirectionQueue] ~= "up" and DirectionQueue[#DirectionQueue] ~= "down"
-	then
-		table.insert(DirectionQueue, "up")
-	elseif
-		key == "down"
-		or key == "j"
-		or key == "s" and DirectionQueue[#DirectionQueue] ~= "down" and DirectionQueue[#DirectionQueue] ~= "up"
-	then
-		table.insert(DirectionQueue, "down")
+	local function queueDirection(direction)
+		local last = DirectionQueue[#DirectionQueue]
+		if
+			(direction == "right" and last == "left")
+			or (direction == "left" and last == "right")
+			or (direction == "up" and last == "down")
+			or (direction == "down" and last == "up")
+		then
+			return
+		end
+		table.insert(DirectionQueue, direction)
+	end
+
+	if key == "right" or key == "l" or key == "d" then
+		queueDirection("right")
+	elseif key == "left" or key == "h" or key == "a" then
+		queueDirection("left")
+	elseif key == "up" or key == "k" or key == "w" then
+		queueDirection("up")
+	elseif key == "down" or key == "j" or key == "s" then
+		queueDirection("down")
 	end
 end
 
