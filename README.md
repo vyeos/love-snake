@@ -11,8 +11,8 @@ k - up
 l - right
 
 ## TODO
-- [ ] start screen
-- [ ] track highscore
+- [-]start screen
+- [-] track highscore
 
 - [ ] theme control
 - [ ] toggle for wraping
