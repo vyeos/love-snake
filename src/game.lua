@@ -110,9 +110,9 @@ function Game.update(dt, state, settings)
 
 				if state.snakeSegments[1].x == state.foodPosition.x and state.snakeSegments[1].y == state.foodPosition.y then
 					state.score = state.score + 1
-					if state.score > state.highScore then
-						state.highScore = state.score
-					end
+				if state.score > state.highScore then
+					state.highScore = state.score
+				end
 					moveFood(state, settings)
 				else
 					table.remove(state.snakeSegments)

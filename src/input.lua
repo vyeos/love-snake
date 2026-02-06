@@ -1,3 +1,5 @@
+local Persistence = require("src.persistence")
+
 local Input = {}
 
 function Input.keypressed(key, state, settings, game)
@@ -15,40 +17,51 @@ function Input.keypressed(key, state, settings, game)
 		elseif key == "left" or key == "a" or key == "h" then
 			if state.settingsOptions[state.settingsIndex] == "Wrapping" then
 				settings.wrappingEnabled = not settings.wrappingEnabled
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Speed" then
 				settings.moveInterval = settings.moveInterval - settings.speedStep
 				if settings.moveInterval < settings.speedMin then
 					settings.moveInterval = settings.speedMin
 				end
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Shape" then
 				settings.shapeStyle = "square"
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, -1)
+				Persistence.save(state, settings)
 			end
 		elseif key == "right" or key == "d" or key == "l" then
 			if state.settingsOptions[state.settingsIndex] == "Wrapping" then
 				settings.wrappingEnabled = not settings.wrappingEnabled
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Speed" then
 				settings.moveInterval = settings.moveInterval + settings.speedStep
 				if settings.moveInterval > settings.speedMax then
 					settings.moveInterval = settings.speedMax
 				end
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Shape" then
 				settings.shapeStyle = "circle"
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, 1)
+				Persistence.save(state, settings)
 			end
 		elseif key == "return" or key == "space" then
 			if state.settingsOptions[state.settingsIndex] == "Wrapping" then
 				settings.wrappingEnabled = not settings.wrappingEnabled
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Shape" then
 				if settings.shapeStyle == "square" then
 					settings.shapeStyle = "circle"
 				else
 					settings.shapeStyle = "square"
 				end
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, 1)
+				Persistence.save(state, settings)
 			end
 		elseif key == "escape" then
 			state.overlayScreen = nil
