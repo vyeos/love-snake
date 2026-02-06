@@ -78,7 +78,7 @@ function UI.draw(state, settings)
 			love.graphics.setColor(theme.overlayDim)
 			love.graphics.rectangle("fill", 0, 0, gridWidth, gridHeight)
 			love.graphics.setColor(theme.modalPanel)
-			love.graphics.rectangle("fill", 30, 28, gridWidth - 60, 164, menuRadius, menuRadius)
+			love.graphics.rectangle("fill", 30, 28, gridWidth - 60, 180, menuRadius, menuRadius)
 			love.graphics.setColor(theme.menuText)
 			love.graphics.setFont(settings.menuFont)
 			love.graphics.printf("Settings", 0, 46, gridWidth, "center")
@@ -115,6 +115,7 @@ function UI.draw(state, settings)
 
 			drawSettingRow(3, "Shape", settings.shapeStyle == "circle" and "Circle" or "Square")
 			drawSettingRow(4, "Theme", settings.themeName)
+			drawSettingRow(5, "Reset", "Defaults")
 
 			local sliderX = 64
 			local sliderY = baseY + 1 * 26 + 16

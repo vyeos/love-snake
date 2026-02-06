@@ -256,6 +256,13 @@ function Settings.load()
 	Settings.hintFont = love.graphics.newFont(11)
 end
 
+function Settings.reset(settings)
+	settings.wrappingEnabled = true
+	settings.moveInterval = 0.15
+	settings.shapeStyle = "square"
+	settings.themeName = "Default"
+end
+
 function Settings.getTheme(settings)
 	return settings.themes[settings.themeName] or settings.themes.Default
 end
