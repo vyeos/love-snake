@@ -14,7 +14,7 @@ l - right
 - [-]start screen
 - [-] track highscore
 
-- [ ] theme control
+- [-] theme control
 - [-] toggle for wraping
 - [-] square/circle for snake and food
 - [-] control game tick

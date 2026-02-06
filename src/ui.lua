@@ -78,14 +78,14 @@ function UI.draw(state, settings)
 			love.graphics.setColor(theme.overlayDim)
 			love.graphics.rectangle("fill", 0, 0, gridWidth, gridHeight)
 			love.graphics.setColor(theme.modalPanel)
-			love.graphics.rectangle("fill", 30, 20, gridWidth - 60, 200, menuRadius, menuRadius)
+			love.graphics.rectangle("fill", 30, 12, gridWidth - 60, 200, menuRadius, menuRadius)
 			love.graphics.setColor(theme.menuText)
 			love.graphics.setFont(settings.menuFont)
-			love.graphics.printf("Settings", 0, 40, gridWidth, "center")
+			love.graphics.printf("Settings", 0, 36, gridWidth, "center")
 
-			local baseY = 74
+			local baseY = 70
 			local function drawSettingRow(index, label, valueText)
-				local y = baseY + (index - 1) * 26
+				local y = baseY + (index - 1) * 22
 				if index == state.settingsIndex then
 					love.graphics.setColor(theme.settingsHighlight)
 					local rowRadius = 0
@@ -134,8 +134,8 @@ function UI.draw(state, settings)
 
 			-- love.graphics.setFont(settings.hintFont)
 			-- love.graphics.setColor(theme.modalHintText)
-			-- love.graphics.printf("Left/Right to change", 0, 194, gridWidth, "center")
-			-- love.graphics.printf("Esc to close", 0, 208, gridWidth, "center")
+			-- love.graphics.printf("Left/Right to change", 0, 190, gridWidth, "center")
+			-- love.graphics.printf("Esc to close", 0, 204, gridWidth, "center")
 		end
 		return
 	end
