@@ -22,6 +22,8 @@ function Input.keypressed(key, state, settings, game)
 				end
 			elseif state.settingsOptions[state.settingsIndex] == "Shape" then
 				settings.shapeStyle = "square"
+			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
+				settings.changeTheme(settings, -1)
 			end
 		elseif key == "right" or key == "d" or key == "l" then
 			if state.settingsOptions[state.settingsIndex] == "Wrapping" then
@@ -33,6 +35,8 @@ function Input.keypressed(key, state, settings, game)
 				end
 			elseif state.settingsOptions[state.settingsIndex] == "Shape" then
 				settings.shapeStyle = "circle"
+			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
+				settings.changeTheme(settings, 1)
 			end
 		elseif key == "return" or key == "space" then
 			if state.settingsOptions[state.settingsIndex] == "Wrapping" then
@@ -43,6 +47,8 @@ function Input.keypressed(key, state, settings, game)
 				else
 					settings.shapeStyle = "square"
 				end
+			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
+				settings.changeTheme(settings, 1)
 			end
 		elseif key == "escape" then
 			state.overlayScreen = nil
