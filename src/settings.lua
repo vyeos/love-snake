@@ -10,6 +10,7 @@ function Settings.load()
 	Settings.speedMax = 0.3
 	Settings.speedStep = 0.01
 	Settings.shapeStyle = "square"
+	Settings.soundEnabled = false
 	Settings.themeName = "Default"
 	Settings.themes = {
 		Default = {
@@ -254,12 +255,17 @@ function Settings.load()
 	Settings.titleFont = love.graphics.newFont(26)
 	Settings.menuFont = love.graphics.newFont(14)
 	Settings.hintFont = love.graphics.newFont(11)
+	Settings.sounds = {
+		eat = love.audio.newSource("gawk.mp3", "static"),
+		die = love.audio.newSource("moan.mp3", "static"),
+	}
 end
 
 function Settings.reset(settings)
 	settings.wrappingEnabled = true
 	settings.moveInterval = 0.15
 	settings.shapeStyle = "square"
+	settings.soundEnabled = false
 	settings.themeName = "Default"
 end
 

@@ -32,6 +32,9 @@ function Persistence.load(state, settings)
 	if type(data.themeName) == "string" then
 		settings.themeName = data.themeName
 	end
+	if type(data.soundEnabled) == "boolean" then
+		settings.soundEnabled = data.soundEnabled
+	end
 end
 
 function Persistence.save(state, settings)
@@ -42,6 +45,7 @@ function Persistence.save(state, settings)
 		moveInterval = settings.moveInterval,
 		shapeStyle = settings.shapeStyle,
 		themeName = settings.themeName,
+		soundEnabled = settings.soundEnabled,
 	}
 
 	local lines = {
@@ -49,9 +53,10 @@ function Persistence.save(state, settings)
 		string.format("\tversion = %d,", data.version),
 		string.format("\thighScore = %d,", data.highScore),
 		string.format("\twrappingEnabled = %s,", tostring(data.wrappingEnabled)),
-		string.format("\tmoveInterval = %.3f,", data.moveInterval),
+		string.format("\tmoveInterval = %.2f,", data.moveInterval),
 		string.format("\tshapeStyle = %q,", data.shapeStyle),
 		string.format("\tthemeName = %q,", data.themeName),
+		string.format("\tsoundEnabled = %s,", tostring(data.soundEnabled)),
 		"}",
 	}
 

@@ -78,10 +78,10 @@ function UI.draw(state, settings)
 			love.graphics.setColor(theme.overlayDim)
 			love.graphics.rectangle("fill", 0, 0, gridWidth, gridHeight)
 			love.graphics.setColor(theme.modalPanel)
-			love.graphics.rectangle("fill", 30, 28, gridWidth - 60, 180, menuRadius, menuRadius)
+			love.graphics.rectangle("fill", 30, 20, gridWidth - 60, 200, menuRadius, menuRadius)
 			love.graphics.setColor(theme.menuText)
 			love.graphics.setFont(settings.menuFont)
-			love.graphics.printf("Settings", 0, 46, gridWidth, "center")
+			love.graphics.printf("Settings", 0, 40, gridWidth, "center")
 
 			local baseY = 74
 			local function drawSettingRow(index, label, valueText)
@@ -115,7 +115,8 @@ function UI.draw(state, settings)
 
 			drawSettingRow(3, "Shape", settings.shapeStyle == "circle" and "Circle" or "Square")
 			drawSettingRow(4, "Theme", settings.themeName)
-			drawSettingRow(5, "Reset", "Defaults")
+			drawSettingRow(5, "Sound", settings.soundEnabled and "On" or "Off")
+			drawSettingRow(6, "Reset", "Defaults")
 
 			local sliderX = 64
 			local sliderY = baseY + 1 * 26 + 16
@@ -133,8 +134,8 @@ function UI.draw(state, settings)
 
 			-- love.graphics.setFont(settings.hintFont)
 			-- love.graphics.setColor(theme.modalHintText)
-			-- love.graphics.printf("Left/Right to change", 0, 174, gridWidth, "center")
-			-- love.graphics.printf("Esc to close", 0, 188, gridWidth, "center")
+			-- love.graphics.printf("Left/Right to change", 0, 194, gridWidth, "center")
+			-- love.graphics.printf("Esc to close", 0, 208, gridWidth, "center")
 		end
 		return
 	end

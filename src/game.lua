@@ -1,3 +1,7 @@
+local Persistence = require("src.persistence")
+
+local Persistence = require("src.persistence")
+
 local Game = {}
 
 local function moveFood(state, settings)
@@ -89,6 +93,10 @@ function Game.update(dt, state, settings)
 					or nextYPosition < 1
 				then
 					state.snakeAlive = false
+					if settings.soundEnabled then
+						settings.sounds.die:stop()
+						settings.sounds.die:play()
+					end
 					return
 				end
 			end
@@ -110,15 +118,24 @@ function Game.update(dt, state, settings)
 
 				if state.snakeSegments[1].x == state.foodPosition.x and state.snakeSegments[1].y == state.foodPosition.y then
 					state.score = state.score + 1
-				if state.score > state.highScore then
-					state.highScore = state.score
-				end
+					if state.score > state.highScore then
+						state.highScore = state.score
+						Persistence.save(state, settings)
+					end
+					if settings.soundEnabled then
+						settings.sounds.eat:stop()
+						settings.sounds.eat:play()
+					end
 					moveFood(state, settings)
 				else
 					table.remove(state.snakeSegments)
 				end
 			else
 				state.snakeAlive = false
+				if settings.soundEnabled then
+					settings.sounds.die:stop()
+					settings.sounds.die:play()
+				end
 			end
 		end
 	elseif state.timer >= 2 then

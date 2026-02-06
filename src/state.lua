@@ -7,7 +7,7 @@ function State.load()
 	State.menuOptions = { "Play", "Highscore", "Settings" }
 	State.menuIndex = 1
 	State.overlayScreen = nil
-	State.settingsOptions = { "Wrapping", "Speed", "Shape", "Theme", "Reset" }
+	State.settingsOptions = { "Wrapping", "Speed", "Shape", "Theme", "Sound", "Reset" }
 	State.settingsIndex = 1
 	State.timer = 0
 	State.snakeSegments = {}

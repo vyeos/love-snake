@@ -30,6 +30,9 @@ function Input.keypressed(key, state, settings, game)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, -1)
 				Persistence.save(state, settings)
+			elseif state.settingsOptions[state.settingsIndex] == "Sound" then
+				settings.soundEnabled = not settings.soundEnabled
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Reset" then
 				settings.reset(settings)
 				Persistence.save(state, settings)
@@ -50,6 +53,9 @@ function Input.keypressed(key, state, settings, game)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, 1)
 				Persistence.save(state, settings)
+			elseif state.settingsOptions[state.settingsIndex] == "Sound" then
+				settings.soundEnabled = not settings.soundEnabled
+				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Reset" then
 				settings.reset(settings)
 				Persistence.save(state, settings)
@@ -67,6 +73,9 @@ function Input.keypressed(key, state, settings, game)
 				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Theme" then
 				settings.changeTheme(settings, 1)
+				Persistence.save(state, settings)
+			elseif state.settingsOptions[state.settingsIndex] == "Sound" then
+				settings.soundEnabled = not settings.soundEnabled
 				Persistence.save(state, settings)
 			elseif state.settingsOptions[state.settingsIndex] == "Reset" then
 				settings.reset(settings)
