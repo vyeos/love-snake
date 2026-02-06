@@ -256,8 +256,8 @@ function Settings.load()
 	Settings.menuFont = love.graphics.newFont(14)
 	Settings.hintFont = love.graphics.newFont(11)
 	Settings.sounds = {
-		eat = love.audio.newSource("gawk.mp3", "static"),
-		die = love.audio.newSource("moan.mp3", "static"),
+		eat = love.audio.newSource("assets/sounds/gawk.mp3", "static"),
+		die = love.audio.newSource("assets/sounds/moan.mp3", "static"),
 	}
 end
 
