@@ -26,5 +26,5 @@ function love.quit()
 end
 
 function love.draw()
-	UI.draw(State, Settings, Game)
+	UI.draw(State, Settings)
 end
